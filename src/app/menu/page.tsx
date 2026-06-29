@@ -9,115 +9,118 @@ const fadeUp = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.12,
-      duration: 0.8,
-      ease,
-    },
+    transition: { delay: i * 0.12, duration: 0.8, ease },
   }),
 };
 
-const categories = [
+const chapters = [
   {
-    name: "Espresso",
+    number: "I",
+    title: "Cold Beverages",
     items: [
-      { name: "House Espresso", price: "₹295", desc: "Single-origin, dark chocolate & cedar notes" },
-      { name: "Doppio", price: "₹350", desc: "Double shot, straight up" },
-      { name: "Cortado", price: "₹325", desc: "Equal parts espresso & steamed milk" },
-      { name: "Flat White", price: "₹375", desc: "Double ristretto, silky microfoam" },
-      { name: "Espresso Martini", price: "₹595", desc: "Espresso, vodka, Kahlúa, shaken" },
+      { name: "Cold Brew", price: "₹180" },
+      { name: "Iced Latte", price: "₹200" },
+      { name: "Iced Matcha", price: "₹220" },
+      { name: "Lemon Mint Cooler", price: "₹180" },
+      { name: "Berry Smoothie", price: "₹250" },
     ],
   },
   {
-    name: "Filter",
+    number: "II",
+    title: "Hot Brews",
     items: [
-      { name: "V60 Pour Over", price: "₹395", desc: "Single-origin, rotating weekly" },
-      { name: "AeroPress", price: "₹350", desc: "Clean, bright, full-bodied" },
-      { name: "Cold Brew", price: "₹375", desc: "16-hour steep, served over a single cube" },
-      { name: "Nitro Cold Brew", price: "₹425", desc: "Velvety smooth, nitrogen-infused" },
-      { name: "Japanese Iced Coffee", price: "₹375", desc: "Flash-brewed over ice" },
+      { name: "House Espresso", price: "₹150" },
+      { name: "Americano", price: "₹170" },
+      { name: "Cappuccino", price: "₹200" },
+      { name: "Flat White", price: "₹220" },
+      { name: "Pour Over", price: "₹280" },
     ],
   },
   {
-    name: "Not Coffee",
+    number: "III",
+    title: "Food & Bites",
     items: [
-      { name: "Matcha Latte", price: "₹375", desc: "Ceremonial grade, whisked to order" },
-      { name: "Hojicha Latte", price: "₹350", desc: "Roasted green tea, toasted & nutty" },
-      { name: "Dark Chocolate", price: "₹325", desc: "72% single-origin, steamed with oat milk" },
-      { name: "Masala Chai", price: "₹295", desc: "House blend, simmered with spices" },
-      { name: "Earl Grey", price: "₹250", desc: "Bergamot, served loose-leaf" },
+      { name: "Truffle Pasta", price: "₹320" },
+      { name: "Grilled Sandwich", price: "₹250" },
+      { name: "Arancini", price: "₹280" },
+      { name: "Caprese Salad", price: "₹280" },
+      { name: "Fries with Dip", price: "₹180" },
     ],
   },
   {
-    name: "Bites",
+    number: "IV",
+    title: "Desserts",
     items: [
-      { name: "Butter Croissant", price: "₹295", desc: "Layered, golden, made in-house" },
-      { name: "Pistachio Bun", price: "₹325", desc: "With orange blossom glaze" },
-      { name: "Banana Bread", price: "₹295", desc: "Salted honey butter on the side" },
-      { name: "Avocado Toast", price: "₹425", desc: "Sourdough, chili flakes, lime" },
-      { name: "Tiramisu", price: "₹395", desc: "Classic, espresso-soaked" },
+      { name: "Signature Waffle", price: "₹220" },
+      { name: "Tiramisu", price: "₹250" },
+      { name: "Molten Lava Cake", price: "₹280" },
+      { name: "Panna Cotta", price: "₹250" },
+      { name: "Affogato", price: "₹220" },
     ],
   },
 ];
 
 export default function MenuPage() {
   return (
-    <div className="min-h-screen bg-[#1C0F0A]">
-      <section className="relative pt-16 pb-8 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(232,160,69,0.08)_0%,_transparent_70%)]" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#0C0A08]">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-[0.04] pointer-events-none"
+        style={{ backgroundImage: "url(https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1920&h=1080&fit=crop&auto=format)" }}
+      />
+
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
-            className="max-w-2xl"
+            className="max-w-3xl"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
           >
-            <span className="text-[#E8A045] text-[11px] uppercase tracking-[0.25em] font-medium">
-              The Menu
+            <span className="font-[family-name:var(--font-hero)] text-[clamp(4rem,12vw,10rem)] leading-none tracking-[0.08em] text-[#D4AF37] opacity-[0.08] select-none block mb-4">
+              M
             </span>
-            <h1 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-[#F5F0EB] mt-4">
-              What We <span className="text-[#E8A045]">Pour</span>
+            <h1 className="font-[family-name:var(--font-hero)] text-4xl sm:text-5xl md:text-6xl leading-[1.1] tracking-[0.05em] text-[#F5F0E8] mt-2">
+              The Menu
             </h1>
-            <p className="text-[#F5F0EB]/70 text-sm sm:text-base mt-4 max-w-md leading-relaxed">
-              Every drink and bite made with intention. Premium craft at honest prices.
+            <p className="text-[#F5F0E8]/40 text-sm mt-4 max-w-md leading-relaxed">
+              Every item crafted with intention. Premium ingredients, honest
+              prices.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-8 pb-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            {categories.map((category, catIdx) => (
+      <div className="section-divider my-0" />
+
+      <section className="relative py-16 pb-32 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            {chapters.map((chapter, ci) => (
               <motion.div
-                key={category.name}
+                key={chapter.title}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeUp}
-                custom={catIdx}
+                custom={ci}
               >
-                <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-[#F5F0EB] mb-8 pb-4 border-b border-[#3A2518]/50">
-                  <span className="text-[#E8A045]">/</span> {category.name}
+                <span className="font-[family-name:var(--font-hero)] text-[#D4AF37]/20 text-sm tracking-[0.15em]">
+                  Chapter {chapter.number}
+                </span>
+                <h2 className="font-[family-name:var(--font-sub)] text-2xl italic text-[#F5F0E8] mt-1 mb-8 pb-4 border-b border-[#D4AF37]/10">
+                  {chapter.title}
                 </h2>
-                <div className="space-y-6">
-                  {category.items.map((item) => (
-                    <div
-                      key={item.name}
-                      className="group flex items-start justify-between gap-4 pb-4 border-b border-[#3A2518]/20"
-                    >
+                <div className="space-y-5">
+                  {chapter.items.map((item) => (
+                    <div key={item.name} className="group flex items-center justify-between gap-4 pb-4 border-b border-[#D4AF37]/5">
                       <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-1">
-                          <h3 className="font-[family-name:var(--font-heading)] text-base font-semibold text-[#F5F0EB] group-hover:text-[#E8A045] transition-colors duration-300">
+                        <div className="flex items-center justify-between">
+                          <span className="font-[family-name:var(--font-sub)] text-base text-[#F5F0E8] group-hover:text-[#D4AF37] transition-colors duration-300">
                             {item.name}
-                          </h3>
-                          <span className="text-[#E8A045] font-[family-name:var(--font-heading)] text-sm font-semibold whitespace-nowrap">
-                            {item.price}
                           </span>
+                          <span className="text-[#D4AF37] text-sm ml-4">{item.price}</span>
                         </div>
-                        <p className="text-[#F5F0EB]/60 text-xs leading-relaxed">
-                          {item.desc}
-                        </p>
+                        <div className="gold-underline h-[1px] mt-2" />
                       </div>
                     </div>
                   ))}

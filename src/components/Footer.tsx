@@ -2,75 +2,87 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2A1A10] border-t border-[#3A2518]/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2">
+    <footer className="bg-[#0C0A08] border-t border-[#D4AF37]/10">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-16">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
+          <div>
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-full bg-[#E8A045] flex items-center justify-center">
-                <span className="text-[#1C0F0A] text-sm font-bold font-[family-name:var(--font-heading)]">18</span>
-              </div>
-              <span className="font-[family-name:var(--font-heading)] text-lg tracking-tight text-[#F5F0EB]">
-                Eighteen <span className="text-[#E8A045]">Stories</span>
+              <div className="w-[1px] h-5 bg-[#D4AF37]/50" />
+              <span className="font-[family-name:var(--font-nav)] text-[11px] tracking-[0.3em] uppercase text-[#F5F0E8]">
+                Eighteen <span className="text-[#D4AF37]">Stories</span>
               </span>
             </Link>
-            <p className="text-[#F5F0EB]/60 text-sm leading-relaxed max-w-sm">
-              Eighteen Stories. One Unforgettable Experience. A premium literary cafe for coffee lovers, creators, and dreamers in Bharuch.
+            <p className="text-[#F5F0E8]/30 text-sm max-w-xs leading-relaxed">
+              Eighteen Stories. One Unforgettable Experience. Tavra Road, Bharuch.
             </p>
           </div>
 
-          <div>
-            <h4 className="font-[family-name:var(--font-heading)] text-sm font-semibold text-[#F5F0EB] mb-4">Navigate</h4>
-            <ul className="space-y-3">
-              {[
-                { href: "/menu", label: "Menu" },
-                { href: "/gallery", label: "Gallery" },
-                { href: "/about", label: "About" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[#F5F0EB]/50 hover:text-[#E8A045] text-sm transition-colors duration-300"
+          <div className="flex flex-wrap gap-12">
+            <div>
+              <h4 className="font-[family-name:var(--font-nav)] text-[10px] tracking-[0.3em] uppercase text-[#F5F0E8]/50 mb-4">
+                Navigate
+              </h4>
+              <ul className="space-y-2.5">
+                {[
+                  { href: "/menu", label: "Menu" },
+                  { href: "/gallery", label: "Gallery" },
+                  { href: "/about", label: "Our Story" },
+                ].map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-[#F5F0E8]/30 hover:text-[#D4AF37] text-sm transition-colors duration-300"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-[family-name:var(--font-nav)] text-[10px] tracking-[0.3em] uppercase text-[#F5F0E8]/50 mb-4">
+                Connect
+              </h4>
+              <ul className="space-y-2.5">
+                <li>
+                  <a
+                    href="tel:+919876543210"
+                    className="text-[#F5F0E8]/30 hover:text-[#D4AF37] text-sm transition-colors duration-300"
                   >
-                    {link.label}
-                  </Link>
+                    +91 98765 43210
+                  </a>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-[family-name:var(--font-heading)] text-sm font-semibold text-[#F5F0EB] mb-4">Visit</h4>
-            <ul className="space-y-3 text-[#F5F0EB]/50 text-sm">
-              <li>Tavra Road, Bharuch</li>
-              <li>Gujarat, India</li>
-              <li className="pt-2">
-                <a href="tel:+919876543210" className="hover:text-[#E8A045] transition-colors duration-300">
-                  +91 98765 43210
-                </a>
-              </li>
-              <li>
-                <a href="mailto:hello@eighteenstories.in" className="hover:text-[#E8A045] transition-colors duration-300">
-                  hello@eighteenstories.in
-                </a>
-              </li>
-            </ul>
+                <li>
+                  <a
+                    href="mailto:hello@eighteenstories.in"
+                    className="text-[#F5F0E8]/30 hover:text-[#D4AF37] text-sm transition-colors duration-300"
+                  >
+                    hello@eighteenstories.in
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[#3A2518]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#F5F0EB]/50 text-xs">
-            &copy; {new Date().getFullYear()} Eighteen Stories. All rights reserved.
+        <div className="mt-12 pt-8 border-t border-[#D4AF37]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[#F5F0E8]/20 text-xs">
+            &copy; {new Date().getFullYear()} Eighteen Stories
           </p>
           <div className="flex items-center gap-6">
-            {["Instagram", "Zomato", "Spotify"].map((social) => (
+            {[
+              { name: "Instagram", href: "https://instagram.com/eighteenstories" },
+              { name: "Zomato", href: "https://zomato.com/bharuch/eighteen-stories-tavra-road" },
+              { name: "Facebook", href: "https://facebook.com/eighteenstories" },
+            ].map((social) => (
               <a
-                key={social}
-                href="#"
-                className="text-[#F5F0EB]/30 hover:text-[#E8A045] text-xs uppercase tracking-widest transition-colors duration-300"
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F5F0E8]/20 hover:text-[#D4AF37] text-[10px] uppercase tracking-[0.3em] transition-colors duration-300 font-[family-name:var(--font-nav)]"
               >
-                {social}
+                {social.name}
               </a>
             ))}
           </div>

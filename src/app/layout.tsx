@@ -1,12 +1,27 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, Space_Grotesk, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PageTransition from "@/components/PageTransition";
 import "./globals.css";
 
+const cinzel = Cinzel({
+  variable: "--font-hero",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-sub",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
 const spaceGrotesk = Space_Grotesk({
-  variable: "--font-heading",
+  variable: "--font-nav",
   subsets: ["latin"],
   display: "swap",
 });
@@ -18,12 +33,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Eighteen Stories | Premium Cafe Bharuch",
+  title: "Eighteen Stories | Premium Literary Cafe, Bharuch",
   description:
     "Eighteen Stories. One Unforgettable Experience. A premium literary cafe on Tavra Road, Bharuch — where every cup tells a story.",
   openGraph: {
     title: "Eighteen Stories",
-    description: "Premium Cafe on Tavra Road, Bharuch",
+    description: "Premium Literary Cafe on Tavra Road, Bharuch",
   },
 };
 
@@ -35,11 +50,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} h-full`}
+      className={`${cinzel.variable} ${cormorant.variable} ${spaceGrotesk.variable} ${inter.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-[#1C0F0A] text-[#F5F0EB] antialiased overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-[#0C0A08] text-[#F5F0E8] antialiased overflow-x-hidden font-[family-name:var(--font-body)]">
         <Navbar />
-        <main className="flex-1 pt-20">{children}</main>
+        <PageTransition>{children}</PageTransition>
         <Footer />
         <WhatsAppButton />
       </body>
